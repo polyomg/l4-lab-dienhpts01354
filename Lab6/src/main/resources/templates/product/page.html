@@ -1,0 +1,21 @@
+<h3>PAGINATION</h3>
+<table border="1" style="width:100%">
+<tr><th>Id</th><th>Name</th><th>Price</th><th>Date</th></tr>
+<tr th:each="p: ${page.content}">
+    <td th:text="${p.id}"></td>
+    <td th:text="${p.name}"></td>
+    <td th:text="${p.price}"></td>
+    <td th:text="${p.createDate}"></td>
+</tr>
+</table>
+<a th:href="@{|/product/page?p=0|}">First</a>
+<a th:href="@{|/product/page?p=${page.number-1}|}">Prev</a>
+<a th:href="@{|/product/page?p=${page.number+1}|}">Next</a>
+<a th:href="@{|/product/page?p=${page.totalPages-1}|}">Last</a>
+<ul>
+<li>Số thực thể hiện tại: [[${page.numberOfElements}]]</li>
+<li>Trang số: [[${page.number}]]</li>
+<li>Kích thước trang: [[${page.size}]]</li>
+<li>Tổng số thực thể: [[${page.totalElements}]]</li>
+<li>Tổng số trang: [[${page.totalPages}]]</li>
+</ul>
