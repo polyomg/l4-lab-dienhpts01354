@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Lab8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px auto;
+            width: 400px;
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; color: #333; }
+        form div { margin-bottom: 15px; }
+        label { display: inline-block; width: 90px; font-weight: bold; }
+        input {
+            width: 250px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #3367d6; }
+        i {
+            color: red;
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đăng nhập hệ thống</h1>
+
+    <!-- Hiển thị thông báo -->
+    <i th:text="${message}"></i>
+
+    <!-- Form login -->
+    <form action="/auth/login" method="post">
+        <div>
+            <label>Username:</label>
+            <input name="username" placeholder="Nhập username" required>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input name="password" type="password" placeholder="Nhập mật khẩu" required>
+        </div>
+        <hr>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
